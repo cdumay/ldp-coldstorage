@@ -2,7 +2,9 @@
 extern crate clap;
 extern crate leveldb;
 extern crate glob;
+extern crate rustc_serialize;
 
+use rustc_serialize::json::Json;
 use glob::glob;
 use clap::App;
 use leveldb::database::Database;
@@ -45,7 +47,10 @@ fn main() {
                     let mut file = BufReader::new(&f);
                     for line in file.lines() {
                         let l = line.unwrap();
-                        println!("{}", l);
+                        match Json::from_str(l.trim()) {
+                            Ok(jdata) => println!("ok => {}", l),
+                            _ => println!("failed => {}", l)
+                        }
                     };
                 }
             },
