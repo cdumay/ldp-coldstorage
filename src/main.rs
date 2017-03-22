@@ -34,7 +34,7 @@ fn main() {
     };
     println!("Using database path: {}", dbpath.display());
 
-    for entry in glob("/tmp/*").expect("Failed to read glob pattern") {
+    for entry in glob(srcpath.to_str().unwrap()).expect("Failed to read glob pattern") {
         match entry {
             Ok(path) => println!("{:?}", path.display()),
             Err(e) => println!("{:?}", e),
