@@ -1,0 +1,9 @@
+[package]
+name = "ldp-coldstorage"
+version = "0.1.0"
+authors = ["caderrik"]
+
+[dependencies]
+leveldb = "*"
+clap = {version = "2.19", features = ["yaml"]}
+glob = "0.2.*"

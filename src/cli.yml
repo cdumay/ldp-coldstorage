@@ -1,0 +1,23 @@
+name: ldp-coldstorage
+version: "0.0.1"
+author: Cedric Dumay <cedric.dumay@gmail.com>
+about: Store GELF files into a leveldb database
+args:
+    - dbpath:
+        short: d
+        long: db-path
+        value_name: PATH
+        help: Sets a custom database path
+        takes_value: true
+    - srcpath:
+        short: s
+        long: src-path
+        value_name: PATH
+        help: Sets a custom source path
+        takes_value: true
+    - srcpattern:
+        short: p
+        long: src-pattern
+        value_name: PATTERN
+        help: Sets a custom source pattern
+        takes_value: true
