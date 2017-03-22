@@ -45,11 +45,11 @@ fn main() {
                 if path.is_dir() == false {
                     let mut f = File::open(path.to_str().unwrap()).unwrap();
                     let mut file = BufReader::new(&f);
-                    for line in file.lines() {
-                        let l = line.unwrap();
+                    for (lineno, data) in file.lines().enumerate() {
+                        let l = data.unwrap();
                         match Json::from_str(l.trim()) {
-                            Ok(jdata) => println!("ok => {}", l),
-                            _ => println!("failed => {}", l)
+                            Ok(jdata) => println!("ok => {} - {}", lineno, l),
+                            _ => println!("failed => {} - {}", lineno, l)
                         }
                     };
                 }
